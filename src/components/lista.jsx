@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
 
 function TarefasLista () {
-    const [itens, setTarefaLista] = useState([])
+    const [tarefas, setTarefaLista] = useState([])
     const [adicionarTarefa, setAdicionar] = useState('')
 
-    const criacao = () => {
-        
+    const criacao = (e) => {
+        e.preventDefault();
+        if (adicionarTarefa.trim() !== '') {
+            setTarefaLista([tarefas, adicionarTarefa]);
+            setAdicionar('');
+        }        
     }
 
     return (
         <>
             <br/>
-            <h1> Lista de Taredas </h1>
-            <form>
-                <input type="text" value={adicionarTarefa} placeholder='Adicionar os itens da lista'/>
+            <h1> Lista de Tarefas </h1>
+            <form onSubmit={criacao}>
+                <input type="text" value={adicionarTarefa} placeholder='Adicionar os itens da lista' onChange={(e) => (setAdicionar(e.target.value))}/>
                 <button type='submit' onClick={criacao}> Alterar Texto </button>
-                <ul> <li /> </ul>
+                <ul> <li key={tarefas}> {tarefas} </li> </ul>
             </form>  
         </>
     )
