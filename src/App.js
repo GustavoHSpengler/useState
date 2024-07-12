@@ -1,16 +1,14 @@
 import './App.css';
-import Contador from './components/contador';
-import Alterador from './components/alterador';
-import Toque from './components/mexa';
-import TarefasLista from './components/lista';
+import Alterador from './components/Alter';
+import Contador from './components/Count';
+import TarefasLista from './components/List';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Contador />
         <Alterador />
-        <Toque />
+        <Contador />
         <TarefasLista />
       </header>
     </div>
